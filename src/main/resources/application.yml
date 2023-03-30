@@ -1,0 +1,12 @@
+twilio:
+  service_sid: VAb8ab6576cea780224dfc1b8da746d76a
+  account_sid: ACb1b7ee07227c4f94baa5fee34ba83b2e
+  auth_token: e055acbb9545056ed3b93f3285e8054f
+  trial_phone_number: +17178040340
+
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: PAYNET-SERVICE
