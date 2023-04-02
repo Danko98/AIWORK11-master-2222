@@ -70,7 +70,7 @@ public class OrderBodyPvhWin {
     private Double rezinaPvhSum;
     private Double samarezSum;
     private Double ispandiletSum;
-    private Double ikkitalikMexanizm;
+    private Byte ikkitalikMexanizm;
     private Double ikkitalikMexanizmSum;
 
     private Double totalPrice;

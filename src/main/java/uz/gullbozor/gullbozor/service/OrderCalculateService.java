@@ -278,35 +278,59 @@ public class OrderCalculateService {
         orderBodyPvhWin.setShelfSum(0d);
 
 
-        Double pvh60QvtLPrice = othersPrice.getPvh60QvtLPrice();
-        Double pvh60QvtLPriceColor = othersPrice.getPvh60QvtLPriceColor();
+        Double pvh60QvtLPrice = othersPrice.getPvh60QvtLPrice() / 6;
+        Double pvh60QvtLPriceColor = othersPrice.getPvh60QvtLPriceColor() / 6;
 
-        Double pvh60TQvtPrice = othersPrice.getPvh60TQvtPrice();
-        Double pvh60TQvtPriceColor = othersPrice.getPvh60TQvtPriceColor();
+        Double pvh60TQvtPrice = othersPrice.getPvh60TQvtPrice() / 6;
+        Double pvh60TQvtPriceColor = othersPrice.getPvh60TQvtPriceColor() / 6;
 
-        Double pvh60ZQvtPrice = othersPrice.getPvh60ZQvtPrice();
-        Double pvh60ZQvtPriceColor = othersPrice.getPvh60ZQvtPriceColor();
+        Double pvh60ZQvtPrice = othersPrice.getPvh60ZQvtPrice() / 6;
+        Double pvh60ZQvtPriceColor = othersPrice.getPvh60ZQvtPriceColor() / 6;
 
-        Double pvh60TrioShtapikTwoPrice = othersPrice.getPvh60TrioShtapikTwoPrice();
-        Double pvh60TrioShtapikTwoPriceColor = othersPrice.getPvh60TrioShtapikTwoPriceColor();
+        Double pvh60TrioShtapikTwoPrice = othersPrice.getPvh60TrioShtapikTwoPrice() / 6;
+        Double pvh60TrioShtapikTwoPriceColor = othersPrice.getPvh60TrioShtapikTwoPriceColor() / 6;
 
-        Double lambriPvhPrice = othersPrice.getLambriPvhPrice();
-        Double lambriPvhPriceColor = othersPrice.getLambriPvhPriceColor();
+        Double lambriPvhPrice = othersPrice.getLambriPvhPrice() / 6;
+        Double lambriPvhPriceColor = othersPrice.getLambriPvhPriceColor() / 6;
 
-        Double lambriAluPrice = othersPrice.getLambriAluPrice();
-        Double lambriAluPriceColor = othersPrice.getLambriAluPriceColor();
+        Double lambriAluPrice = othersPrice.getLambriAluPrice() / 6;
+        Double lambriAluPriceColor = othersPrice.getLambriAluPriceColor() / 6;
 
-        Double aluLPrice = othersPrice.getAluLPrice();
-        Double aluLPriceColor = othersPrice.getAluLPriceColor();
+        Double aluLPrice = othersPrice.getAluLPrice() / 6;
+        Double aluLPriceColor = othersPrice.getAluLPriceColor() / 6;
 
-        Double aluTPrice = othersPrice.getAluTPrice();
-        Double aluTPriceColor = othersPrice.getAluTPriceColor();
+        Double aluTPrice = othersPrice.getAluTPrice() / 6;
+        Double aluTPriceColor = othersPrice.getAluTPriceColor() / 6;
 
-        Double aluZPrice = othersPrice.getAluZPrice();
-        Double aluZPriceColor = othersPrice.getAluZPriceColor();
+        Double aluZPrice = othersPrice.getAluZPrice() / 6;
+        Double aluZPriceColor = othersPrice.getAluZPriceColor() / 6;
 
-        Double aluShtapik1Price = othersPrice.getAluShtapik1Price();
-        Double aluShtapik1PriceColor = othersPrice.getAluShtapik1PriceColor();
+        Double aluShtapik1Price = othersPrice.getAluShtapik1Price() / 6;
+        Double aluShtapik1PriceColor = othersPrice.getAluShtapik1PriceColor() / 6;
+
+        Double shelf15Price = othersPrice.getShelf15Price() / 6;
+        Double shelf15PriceColor = othersPrice.getShelf15PriceColor() / 6;
+
+        Double shelf20Price = othersPrice.getShelf20Price() / 6;
+        Double shelf20PriceColor = othersPrice.getShelf20PriceColor() / 6;
+
+        Double shelf25Price = othersPrice.getShelf25Price() / 6;
+        Double shelf25PriceColor = othersPrice.getShelf25PriceColor() / 6;
+
+        Double shelf30Price = othersPrice.getShelf30Price() / 6;
+        Double shelf30PriceColor = othersPrice.getShelf30PriceColor() / 6;
+
+        Double shelf35Price = othersPrice.getShelf35Price() / 6;
+        Double shelf35PriceColor = othersPrice.getShelf35PriceColor() / 6;
+
+        Double shelf40Price = othersPrice.getShelf40Price() / 6;
+        Double shelf40PriceColor = othersPrice.getShelf40PriceColor() / 6;
+
+        Double shelf45Price = othersPrice.getShelf45Price() / 6;
+        Double shelf45PriceColor = othersPrice.getShelf45PriceColor() / 6;
+
+
+
 
         Double aluShtapik2Price = othersPrice.getAluShtapik2Price();
 
@@ -319,7 +343,7 @@ public class OrderCalculateService {
 
         double totalPrice = 0d;
 
-        int height =  newOrderParam.getHeight();
+        int height =  newOrderParam.getHeight() ;
         int width =  newOrderParam.getWidth();
 
 
@@ -354,7 +378,6 @@ public class OrderCalculateService {
             case 3:
             case 4:
 
-
 //                |------|------|
 //                |      |      |
 //                |      |      |
@@ -364,30 +387,33 @@ public class OrderCalculateService {
 
 
 
-
-
                 if (category > 2) {
-                    orderBodyPvhWin.setIkkitalikMexanizm(othersPrice.getIkkitalikMexanizmPrice());
+                    orderBodyPvhWin.setIkkitalikMexanizm((byte) 1);
+                    orderBodyPvhWin.setIkkitalikMexanizmSum(othersPrice.getIkkitalikMexanizmPrice());
                 }else {
                     orderBodyPvhWin.setIspandiletCount((byte) 1);
                     orderBodyPvhWin.setIspandiletSum(othersPrice.getIspandiletPrice());
+
+
 
                     if (height > 1590) {
                         orderBodyPvhWin.setPetlya((byte) 3);
                         orderBodyPvhWin.setPetlyaSum(othersPrice.getPetlyaPrice() * 3);
                         orderBodyPvhWin.setSamarez((short) 51);
-                        orderBodyPvhWin.setSamarezSum((othersPrice.getSamarezPrice() / 1000) * 24);// Togirlash kere***********************
 
-                        totalPrice = (totalPrice + orderBodyPvhWin.getPetlyaSum() + orderBodyPvhWin.getSamarezSum());
                     } else {
                         orderBodyPvhWin.setPetlya((byte) 2);
                         orderBodyPvhWin.setPetlyaSum(othersPrice.getPetlyaPrice() * 3);
                         orderBodyPvhWin.setSamarez((short) 24);
-                        orderBodyPvhWin.setSamarezSum((othersPrice.getSamarezPrice() / 1000) * 24);
 
-                        totalPrice = (totalPrice + orderBodyPvhWin.getPetlyaSum() + orderBodyPvhWin.getSamarezSum());
                     }
 
+                    if (newOrderParam.getColorNumber()==1) {
+                        orderBodyPvhWin.setPetlyaSum(orderBodyPvhWin.getPetlya() * othersPrice.getPetlyaPrice());
+                    }
+                    else {
+                        orderBodyPvhWin.setPetlyaSum(orderBodyPvhWin.getPetlya() * othersPrice.getPetlyaPriceColor());
+                    }
                 }
                 // Profillar
                 L = getPvhL(width, height);
@@ -406,16 +432,16 @@ public class OrderCalculateService {
                 //Oynalar
 
 
-                glass1.setHeight((double) ((((height - 111) / 10) + ((height - 111) % 10))) / 100d );
-                glass1.setWidth((double) ((((((width - 96) / 2) - 34) / 10) + ((((width - 96) / 2) - 34) % 10 ))) / 100d );
+                glass1.setHeight((double) (height - 111 ) + (height - 111)   );
+                glass1.setWidth((double) ((((width - 96) / 2) - 34)) + (((width - 96) / 2) - 34)   );
                 glass1.setCount((byte) 2);
                 Glass save = glassRepo.save(glass1);
 
                 orderBodyPvhWin.setGlass1(save.getId());
 
 
-                glass2.setHeight((double) (((T - 81) / 10)) / 100d );
-                glass2.setWidth((double) ((( ( (width - 96) / 2) - 125)/10)) / 100d);
+                glass2.setHeight((double) (((T - 81) ))  );
+                glass2.setWidth((double) ( ( (width - 96) / 2) - 125));
                 glass2.setCount((byte) 2);
                 Glass save1 = glassRepo.save(glass2);
 
@@ -437,27 +463,31 @@ public class OrderCalculateService {
                 orderBodyPvhWin.setPoroshok((chitLength / 1000 ) * 20 );
                 orderBodyPvhWin.setPoroshokSum((orderBodyPvhWin.getPoroshok()  * othersPrice.getPoroshokPrice() ) / 1000 );
 
+                orderBodyPvhWin.setSamarez((short) 16);
+
+                orderBodyPvhWin.setSamarezSum((othersPrice.getSamarezPrice() / 1000) * 24);// Togirlash kere***********************
+                totalPrice = (totalPrice  + orderBodyPvhWin.getSamarezSum());
 
                 if (newOrderParam.getColorNumber() == 1) {
 
-                    orderBodyPvhWin.setPvhLSum((L / 1000) * othersPrice.getPvh60QvtLPrice());
-                    orderBodyPvhWin.setPvhTSum((T / 1000) * othersPrice.getPvh60TQvtPrice());
-                    orderBodyPvhWin.setPvhZSum((Z / 1000) * othersPrice.getPvh60ZQvtPrice());
+                    orderBodyPvhWin.setPvhLSum((L / 1000) * pvh60QvtLPrice);
+                    orderBodyPvhWin.setPvhTSum((T / 1000) * pvh60TQvtPrice);
+                    orderBodyPvhWin.setPvhZSum((Z / 1000) * pvh60ZQvtPrice);
 
                     orderBodyPvhWin.setRuchkaSum(othersPrice.getRuchkaPvhPrice() * 1);
 
-                    orderBodyPvhWin.setShtapikSum((shtapik / 1000) * othersPrice.getPvh60TrioShtapikTwoPrice());
+                    orderBodyPvhWin.setShtapikSum((shtapik / 1000) * pvh60TrioShtapikTwoPrice);
                     totalPrice = (orderBodyPvhWin.getPvhLSum() + orderBodyPvhWin.getPvhTSum() + orderBodyPvhWin.getPvhZSum() + orderBodyPvhWin.getShelfSum());
 
                 } else {
 
-                    orderBodyPvhWin.setPvhLSum((L / 1000) * othersPrice.getPvh60QvtLPriceColor());
-                    orderBodyPvhWin.setPvhTSum((T / 1000) * othersPrice.getPvh60TQvtPriceColor());
-                    orderBodyPvhWin.setPvhZSum((Z / 1000) * othersPrice.getPvh60ZQvtPriceColor());
+                    orderBodyPvhWin.setPvhLSum((L / 1000) * pvh60QvtLPriceColor);
+                    orderBodyPvhWin.setPvhTSum((T / 1000) * pvh60TQvtPriceColor);
+                    orderBodyPvhWin.setPvhZSum((Z / 1000) * pvh60ZQvtPriceColor);
 
                     orderBodyPvhWin.setRuchkaSum(othersPrice.getRuchkaPvhColorPrice() * 1);
 
-                    orderBodyPvhWin.setShtapikSum((shtapik / 1000) * othersPrice.getPvh60TrioShtapikTwoPriceColor());
+                    orderBodyPvhWin.setShtapikSum((shtapik / 1000) * pvh60TrioShtapikTwoPriceColor);
 
                     totalPrice += (orderBodyPvhWin.getPvhLSum() + orderBodyPvhWin.getPvhTSum() + orderBodyPvhWin.getPvhZSum() + orderBodyPvhWin.getShelfSum());
 
@@ -539,9 +569,11 @@ public class OrderCalculateService {
 
 
                 if ((category == 8) || (category == 9)) {
-                    orderBodyPvhWin.setIkkitalikMexanizm(othersPrice.getIkkitalikMexanizmPrice());
+                    orderBodyPvhWin.setIkkitalikMexanizm((byte) 1);
+                    orderBodyPvhWin.setIkkitalikMexanizmSum(othersPrice.getIkkitalikMexanizmPrice());
                 } else if (category == 10) {
-                    orderBodyPvhWin.setIkkitalikMexanizm(othersPrice.getIkkitalikMexanizmPrice() * 2);
+                    orderBodyPvhWin.setIkkitalikMexanizm((byte) 2);
+                    orderBodyPvhWin.setIkkitalikMexanizmSum(othersPrice.getIkkitalikMexanizmPrice() * 2);
                 }
                 // Profillar
                 L = getPvhL(width, height);
@@ -687,9 +719,10 @@ public class OrderCalculateService {
 
 
                 if ((category == 13) || category == 14) {
-                    orderBodyPvhWin.setIkkitalikMexanizm(othersPrice.getIkkitalikMexanizmPrice());
+                    orderBodyPvhWin.setIkkitalikMexanizm((byte) 1);
+                    orderBodyPvhWin.setIkkitalikMexanizmSum(othersPrice.getIkkitalikMexanizmPrice());
                 } else {
-                    orderBodyPvhWin.setIkkitalikMexanizm(0d);
+                    orderBodyPvhWin.setIkkitalikMexanizm((byte) 0);
                 }
 
                 // Profillar
@@ -834,9 +867,11 @@ public class OrderCalculateService {
 
 
                 if ((category == 16) || category == 17) {
-                    orderBodyPvhWin.setIkkitalikMexanizm(othersPrice.getIkkitalikMexanizmPrice());
+                    orderBodyPvhWin.setIkkitalikMexanizm((byte) 1);
+                    orderBodyPvhWin.setIkkitalikMexanizmSum(othersPrice.getIkkitalikMexanizmPrice());
                 } else if (category == 18) {
-                    orderBodyPvhWin.setIkkitalikMexanizm(othersPrice.getIkkitalikMexanizmPrice() * 2);
+                    orderBodyPvhWin.setIkkitalikMexanizm((byte) 2);
+                    orderBodyPvhWin.setIkkitalikMexanizmSum(othersPrice.getIkkitalikMexanizmPrice() * 2);
                 }
 
                 // Profillar
@@ -963,140 +998,6 @@ public class OrderCalculateService {
 
             case 19:
             case 20:
-
-//  Eshik
-//               |-------------|
-//               |             |
-//               |             |
-//               |             |
-//               |             |
-//               |             |
-//               |             |
-//               |-------------|
-//               |  |  |  |  | |
-//               |  |  |  |  | |
-//               |  |  |  |  | |
-//               |__|__|__|__|_|
-
-
-
-
-                // Profillar
-                L = getPvhL(width, height);
-
-                T = ((height - 96) * 2);
-
-                part = ((width - 270) / 3);
-
-                widthMini = (part + 67);
-
-                orderBodyPvhWin.setWidthMini(widthMini);
-
-                Z = 4 * (part + 42 + T);
-
-                shtapik = (Z - 448);
-
-                shtapik = (shtapik + ((T * 2) + ((part) * 2)));
-
-                glass1.setHeight((double) (height - 111));
-                glass1.setWidth((double) (part - 15));
-                glass1.setCount((byte) 2);
-
-                glass2.setHeight((double) (T - 112));
-                glass2.setWidth((double) (part - 112));
-                glass2.setCount((byte) 4);
-
-                glassRepo.save(glass1);
-                glassRepo.save(glass2);
-
-                //Chit
-                chitLength = (int) (2 * (glass1.getHeight() + glass1.getWidth()) - 120);
-                rezinaPvhLength = (shtapik);
-
-
-                if (newOrderParam.getColorNumber() == 1) {
-
-                    orderBodyPvhWin.setPvhLSum((L / 1000) * othersPrice.getPvh60QvtLPrice());
-                    orderBodyPvhWin.setPvhTSum((T / 1000) * othersPrice.getPvh60TQvtPrice());
-                    orderBodyPvhWin.setPvhZSum((Z / 1000) * othersPrice.getPvh60ZQvtPrice());
-
-                    orderBodyPvhWin.setShtapikSum((shtapik / 1000) * othersPrice.getPvh60TrioShtapikTwoPrice());
-                    totalPrice = (orderBodyPvhWin.getPvhLSum() + orderBodyPvhWin.getPvhTSum() + orderBodyPvhWin.getPvhZSum() + orderBodyPvhWin.getShelfSum());
-
-                } else {
-
-                    orderBodyPvhWin.setPvhLSum((L / 1000) * othersPrice.getPvh60QvtLPriceColor());
-                    orderBodyPvhWin.setPvhTSum((T / 1000) * othersPrice.getPvh60TQvtPriceColor());
-                    orderBodyPvhWin.setPvhZSum((Z / 1000) * othersPrice.getPvh60ZQvtPriceColor());
-
-                    orderBodyPvhWin.setShtapikSum((shtapik / 1000) * othersPrice.getPvh60TrioShtapikTwoPriceColor());
-
-                    totalPrice += (orderBodyPvhWin.getPvhLSum() + orderBodyPvhWin.getPvhTSum() + orderBodyPvhWin.getPvhZSum() + orderBodyPvhWin.getShelfSum());
-
-                }
-
-
-                //Narxlarni qo'shish *************************************************************************************
-
-                orderBodyPvhWin.setPvhL(L);
-                orderBodyPvhWin.setPvhT(T);
-                orderBodyPvhWin.setPvhZ(Z);
-
-
-                orderBodyPvhWin.setShtapik(shtapik);
-
-                orderBodyPvhWin.setShelfSum(getShelfPrice(newOrderParam.getShelfSize(), (width + 100), newOrderParam.getCompanyId(), newOrderParam.getColorNumber()));
-                totalPrice = (totalPrice + orderBodyPvhWin.getShelfSum());
-                orderBodyPvhWin.setShelf_size(newOrderParam.getShelfSize());
-                orderBodyPvhWin.setShelf_length(width + 100);
-
-                kvadrat = (glass1.getWidth() * glass1.getHeight() + (glass2.getWidth() * glass2.getHeight()));
-                orderBodyPvhWin.setGlassKvadrat(kvadrat);
-                orderBodyPvhWin.setGlassSum(getGlassPrice(kvadrat, newOrderParam.getGlassNumber(), newOrderParam.getCompanyId()));
-
-                orderBodyPvhWin.setQoraBurchak((byte) 12);
-                orderBodyPvhWin.setSariqBurchak((byte) 2);
-
-                orderBodyPvhWin.setSariqBurchakSum(orderBodyPvhWin.getQoraBurchak() * othersPrice.getSariqBurchakPrice());
-                orderBodyPvhWin.setQoraBurchakSum(orderBodyPvhWin.getSariqBurchak() * othersPrice.getQoraBurchakPrice());
-
-                orderBodyPvhWin.setSaydinitel((byte) 4);
-                orderBodyPvhWin.setSaydinitelSum(orderBodyPvhWin.getSaydinitel() * othersPrice.getSaydinitelPrice());
-
-                totalPrice = (totalPrice + orderBodyPvhWin.getGlassSum() + orderBodyPvhWin.getSariqBurchakSum() + orderBodyPvhWin.getQoraBurchakSum());
-                if (height > 1490) {
-                    orderBodyPvhWin.setPetlya((byte) 3);
-                    orderBodyPvhWin.setPetlyaSum(othersPrice.getPetlyaPrice() * orderBodyPvhWin.getPetlya());
-                    orderBodyPvhWin.setSamarez((short) 51);
-                    orderBodyPvhWin.setSamarezSum((othersPrice.getSamarezPrice() / 1000) * 24);// Togirlash kere***********************
-
-                    totalPrice = (totalPrice + orderBodyPvhWin.getPetlyaSum() + orderBodyPvhWin.getSamarezSum());
-                } else {
-                    orderBodyPvhWin.setPetlya((byte) 2);
-                    orderBodyPvhWin.setPetlyaSum(othersPrice.getPetlyaPrice() * 3);
-                    orderBodyPvhWin.setSamarez((short) 24);
-                    orderBodyPvhWin.setSamarezSum((othersPrice.getSamarezPrice() / 1000) * 24);
-
-                    totalPrice = (totalPrice + orderBodyPvhWin.getPetlyaSum() + orderBodyPvhWin.getSamarezSum());
-                }
-
-
-                orderBodyPvhWin.setTotalPrice(totalPrice);
-
-                partOfWindow = companyEntity.getPartOfWindow();
-
-
-                partOfWindow = ((totalPrice / 100) * partOfWindow);
-
-
-                orderBodyPvhWin.setCompanyPartPrice(partOfWindow);
-
-
-                if (newOrderParam.isResponseToCompany()){
-                    return orderBodyPvhWin;
-                }else {
-                    return orderBodyPvhWin;
-                }
 
 
             case 21:
